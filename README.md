@@ -19,7 +19,7 @@ src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
 
 
-The computing scientists main challenge is not to get confused by the complexities of (their) own making.
+The computing scientists main challenge is not to get confused by the complexities of (their) own making.    
 -- E.W. Dijkstra
 
 If you cannot- in the long run- tell everyone what you have been doing, your doing has been worthless.   
@@ -47,10 +47,10 @@ For I am a bear of very little brain and long words bother me.
 -- Winnie the Pooh
 
 
-In any field find the strangest thing and then  explore it.
+In any field find the strangest thing and then  explore it.   
 -- John Archibald Wheeler
 
-Just because there's a reason, Doesn't mean its understood.
+Just because there's a reason, Doesn't mean its understood.    
 -- Stiff Little Fingers
 
 Don't use a big word where a diminutive one will suffice.  
