@@ -22,7 +22,6 @@ function Range:x() return within(self.lo, self.hi) end
 function Range:y() return self:x() end
 
 local Sf = class(Range)
-
 function Sf:y() return self:m()*(self:x() - 6) end
 function Sf:m() return within(-0.972,-0.648) end
 

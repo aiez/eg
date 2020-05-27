@@ -1,4 +1,4 @@
-<a name=top><img align=right width=280 src="https://github.com/aiez/eg/blob/master/etc/img/dragon.png">
+<a name=top><img align=right width=400 src="https://github.com/aiez/eg/blob/master/etc/img/dragon.png">
 <h1><a href="/README.md#top">Is AI Easy?</a></h1> 
 <p> <a
 href="https://github.com/aiez/eg/blob/master/LICENSE">license</a> :: <a

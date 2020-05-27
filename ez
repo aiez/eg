@@ -34,13 +34,13 @@ PROMPT_COMMAND='echo -ne "${_c2}iSH:${_c6}$(git branch 2>/dev/null | grep '^*' |
 echo -ne "\033[96m"
 cat<<-"EOF"
 
-    (\____/)
-      (_oo_)         aiez/eg
+    (\____/)         AI is easy?
+      (_oo_)        
         (O)          By your command ...
       __||__    \)
    []/______\[] /
-   / \______/ \/
-  /    /__\          Ezai v3 (c) 2020
+   / \______/ \/     aiez/eg
+  /    /__\          v3 (c) 2020
  (\   /____\         <timm@ieee.org>
 
 EOF
