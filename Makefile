@@ -10,6 +10,7 @@ dirs:
 	@mkdir -p test test/data test/data/raw test/data/cooked
 
 doc/%.md : src/%.lua README.md
+	@echo "# $@ ..."
 	@gawk 'BEGIN{FS="\n";RS=""} {print;exit}' README.md > $@
 	@echo                        >> $@
 	@gawk -f etc/lua2md.awk $<   >> $@
