@@ -41,16 +41,13 @@ For I am a bear of very little brain and long words bother me.
 -- Winnie the Pooh
 
 
-In any field find the strangest thing and then  explore it.   
--- John Archibald Wheeler
-
 
 Don't use a big word where a diminutive one will suffice.  
 -- Anon
 
 
-I'm not real bright, but I can lift heavy things.   
--- Lou Reed
+In any field find the strangest thing and then  explore it.   
+-- John Archibald Wheeler
 
 The hardest to learn was the lest complicated.  
 -- Indigo Girls
