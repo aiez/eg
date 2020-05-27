@@ -1,7 +1,7 @@
 require "ok"
 
-local obj    = require "obj"
-local Person = obj.class()
+local class    = require "class"
+local Person = class()
 
 function Person:_init(name)
   self.name=name
@@ -11,7 +11,7 @@ function Person:__tostring()
   return 'Person.' .. self.name 
 end
 
-local Emp = obj.class(Person)
+local Emp = class(Person)
 
 function Emp:_init(name,class)
   self:super(name)

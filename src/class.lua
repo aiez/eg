@@ -1,8 +1,9 @@
+--[[
 # `Obj`: defined classes
 
 Taken from the excellent Microlight library.
 
-```lua
+--]]
 
 local ml = {}
 local select,pairs = select,pairs
@@ -10,7 +11,7 @@ local function_arg
 
 table.unpack = table.unpack or unpack
 
-```
+--[[
 
 ## Classes.
 
@@ -25,7 +26,7 @@ be accessed through the object.
 All metamethods are inherited.
 The class is given a function `Klass.classof(obj)`.
 
-```lua
+--]]
 
 function ml.class(base)
     local klass, base_ctor = {}
@@ -63,7 +64,7 @@ function ml.class(base)
     return klass
 end
 
-```
+--[[
 This code uses some lower-level tools:
 
 ## Update
@@ -71,7 +72,7 @@ This code uses some lower-level tools:
 Add the key/value pairs of arrays to the first array.
 For sets, this is their union. For the same keys,
 the values from the first table will be overwritten.
-```lua
+--]]
 
 function ml.update (t,...)
     for i = 1,select('#',...) do
@@ -82,14 +83,14 @@ function ml.update (t,...)
     return t
 end
 
-```
+--[[
 ## Import
 
 Bring modules or tables into 't`.
 If `lib` is a string, then it becomes the result of `require`
 With only one argument, the second argument is assumed to be
 the `ml` table itself.
-```lua
+--]]
 
 function ml.import(t,...)
     local other
@@ -118,7 +119,5 @@ function ml.import(t,...)
     return ml.update(t,table.unpack(libs))
 end
 
-return ml
-
-```
+return ml.class
 

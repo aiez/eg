@@ -17,6 +17,8 @@ src="https://travis-ci.org/aiez/eg.svg?branch=master"></a><a
 src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a 
      href='https://coveralls.io/github/aiez/lua?branch=master'><img i
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
+<em>The computing scientists main challenge is not to get confused by the complexities of (their) own making.</em><br>  
+-- E.W. Dijkstra<hr>
 
 
 # 33234243
