@@ -22,9 +22,6 @@ src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Cov
 The computing scientists main challenge is not to get confused by the complexities of (their) own making.    
 -- E.W. Dijkstra
 
-If you cannot- in the long run- tell everyone what you have been doing, your doing has been worthless.   
--- Erwin Schroedinger
-
 As complexity rises, precise statements lose meaning, and meaningful statements lose precision.   
 --Lotfi Zadeh
 
@@ -37,9 +34,6 @@ The most incomprehensible thing about the world is that it is comprehensible.
 Order and simplification are the first steps toward the mastery of a subject.   
 --Thomas Mann.
 
-The impossible we understand right away - the obvious takes a little longer.    
--- Anon
-
 Inside every large program, there is a small program trying to get out.  
 -- Tony Hoare
 
@@ -50,8 +44,6 @@ For I am a bear of very little brain and long words bother me.
 In any field find the strangest thing and then  explore it.   
 -- John Archibald Wheeler
 
-Just because there's a reason, Doesn't mean its understood.    
--- Stiff Little Fingers
 
 Don't use a big word where a diminutive one will suffice.  
 -- Anon
@@ -72,10 +64,11 @@ Complexity is easy. Simplicity is hard.
 Try again. Fail again. Fail better.  
 -- Samuel Beckett
 
-It ain't rocket science.
+It ain't rocket science.   
+-- Anon
 
 Less, but better.  
-- Deiter Rams
+-- Deiter Rams
 
 Less. Plz.   
 -- Tim Menzies
