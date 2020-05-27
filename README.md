@@ -17,10 +17,70 @@ src="https://travis-ci.org/aiez/eg.svg?branch=master"></a><a
 src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a 
      href='https://coveralls.io/github/aiez/lua?branch=master'><img i
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
-<em>The computing scientists main challenge is not to get confused by the complexities of (their) own making.</em><br>  
--- E.W. Dijkstra<hr>
 
 
+The computing scientists main challenge is not to get confused by the complexities of (their) own making.
+-- E.W. Dijkstra
+
+If you cannot- in the long run- tell everyone what you have been doing, your doing has been worthless.   
+-- Erwin Schroedinger
+
+As complexity rises, precise statements lose meaning, and meaningful statements lose precision.   
+--Lotfi Zadeh
+
+I have made this letter longer because I did not have time to make it shorter.   
+-- Blaise Pascal 
+
+The most incomprehensible thing about the world is that it is comprehensible.   
+-- Albert Einstein
+
+Order and simplification are the first steps toward the mastery of a subject.   
+--Thomas Mann.
+
+The impossible we understand right away - the obvious takes a little longer.    
+-- Anon
+
+Inside every large program, there is a small program trying to get out.  
+-- Tony Hoare
+
+For I am a bear of very little brain and long words bother me.   
+-- Winnie the Pooh
+
+
+In any field find the strangest thing and then  explore it.
+-- John Archibald Wheeler
+
+Just because there's a reason, Doesn't mean its understood.
+-- Stiff Little Fingers
+
+Don't use a big word where a diminutive one will suffice.  
+-- Anon
+
+
+I'm not real bright, but I can lift heavy things.   
+-- Lou Reed
+
+The hardest to learn was the lest complicated.  
+-- Indigo Girls
+
+Why is "abbreviation" such a long word?
+-- Anon
+
+Complexity is easy. Simplicity is hard.  
+--Unknown
+
+Try again. Fail again. Fail better.  
+-- Samuel Beckett
+
+It ain't rocket science.
+
+Less, but better.  
+- Deiter Rams
+
+Less. Plz.   
+-- Tim Menzies
+
+----------
 Are you tired of complex AI models that are slow to build and hard to explain?
 
 Researchers usually seek solutions that are more intricate and complex;
