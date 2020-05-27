@@ -34,9 +34,6 @@ Don't use a big word where a diminutive one will suffice.
 Why is "abbreviation" such a long word?   
 -- Anon
 
-It ain't rocket science.   
--- Anon
-
 Less, but better.  
 -- Deiter Rams
 
