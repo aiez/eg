@@ -42,10 +42,11 @@ Less. Plz.
 
 ## A "Simplicity-first" Approach to AI
 
-Before you waste time and money and   much CPU to generate
-complex and opaque AI models, perhaps it is prudent to first try something simple.
-All the AI methods explored here are quick to code and execute. 
-At  the very least, they will  quickly
+Before you waste time and money (and   much CPU) to build
+complex and opaque AI models, maybe you should first try something simpler?
+
+All the AI methods explored here are quick to code and fast to run. 
+At  the very least, these methods will  quickly
 generate an
 baseline AI model against which you demonstrate the  superiority   of  some other, seemingly more sophisticated, method.
 And at the very most, if these simple methods work well, then you have avoided all that extra modeling.
@@ -60,17 +61,18 @@ simpler AI.
 
 This book is in two parts. Firstly, some case studies
 are presented where "simplicity-first" performed very well indeed.
-
-Second, there are   
+Secondly, there are   
 15 coding challenges aimed at teaching programmers how to write simpler AI
 systems:
 
--  Each challenge comes with a fully working solutions, which
-you need to 
-your favorite language.
-You have mastered the challenge when your unit tests produce similar output to our unit tests.
 - These challenges could be used as a guided self-study or as the basis of a graduate class on programming AI
 systems.
 Each challenge comes with just enough theory to understand the problem, as well as numerous suggestions on how
 this code might be improved.
+-  Each challenge comes with a fully working example, which
+you need to 
+your favorite language.
+You have mastered the challenge when your unit tests produce similar output to our unit tests.
 
+For reasons of simplicity and portability (especially to IOT devices), we code our examples in LUA-- which
+you can just treat as a executable specification (so you will not need to code in LUA to use this book).
