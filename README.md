@@ -18,6 +18,9 @@ src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a
      href='https://coveralls.io/github/aiez/lua?branch=master'><img i
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
 
+Give me the fruitful error any time, full of seeds, bursting with its own corrections. You can keep your sterile truth for yourself.  
+-- Vilfredo Pareto
+
 
 The computing scientists main challenge is not to get confused by the complexities of (their) own making.    
 -- E.W. Dijkstra
@@ -30,9 +33,6 @@ I have made this letter longer because I did not have time to make it shorter.
 
 The most incomprehensible thing about the world is that it is comprehensible.   
 -- Albert Einstein
-
-Order and simplification are the first steps toward the mastery of a subject.   
---Thomas Mann.
 
 Inside every large program, there is a small program trying to get out.  
 -- Tony Hoare
@@ -57,9 +57,6 @@ Why is "abbreviation" such a long word?
 
 Complexity is easy. Simplicity is hard.  
 --Unknown
-
-Try again. Fail again. Fail better.  
--- Samuel Beckett
 
 It ain't rocket science.   
 -- Anon
