@@ -1,24 +1,30 @@
 local class=require "class"
 
-local r = math.random
-local within= function(a,b) return lo + r()*(hi-lo) end
+local r     = math.random
+local within= function(a,b) return a + r()*(b-a) end
 
+print(within(10,20))
 local Range= class()
 
-function Range_init(name,lo,hi)
+function Range:_init(name,lo,hi)
   self.name = name
   self.lo   = lo or 1
   self.hi   = hi or 6
-  self.x    = of(lo,hi)
+end
+
+function Range:show(y)
+  y = y or self:y()
+  local fmt = y > 10 and "%.0f" or "%4.2f"
+  return string.format(fmt,y)
 end
 
 function Range:x() return within(self.lo, self.hi) end
-function Range:y() return self.x end
+function Range:y() return self:x() end
 
 local Sf = class(Range)
 
 function Sf:y() return self:m()*(self:x() - 6) end
-function Sf:m() return within(-0.972,-0.648)
+function Sf:m() return within(-0.972,-0.648) end
 
 local Em = class(Range)
 function Em:y() return self:m()*(self:x()-3) + 1 end
@@ -33,7 +39,8 @@ local B = class(Range)
 function B:y() 
   return -0.036 * self:x() + 1.1 - 0.1*r() -0.05 end
 
-Com= {      Range("kloc",2,1000), 
+function cocomo() 
+  return {  Range("kloc",2,1000), 
             B(  "b",3,10),
             Sf( "prec"),
             Sf( "flex"), 
@@ -57,5 +64,11 @@ Com= {      Range("kloc",2,1000),
             Emn("tool"),
             Emn("site",1,6),
             Emn("sced")}
+end
 
-
+for i=1,100 do
+  local t={} 
+  for _,one in pairs(cocomo()) do
+     t[#t+1] = one:show() end
+  print(table.concat(t,","))
+end
