@@ -63,7 +63,7 @@ I'm not real bright, but I can lift heavy things.
 The hardest to learn was the lest complicated.  
 -- Indigo Girls
 
-Why is "abbreviation" such a long word?
+Why is "abbreviation" such a long word?   
 -- Anon
 
 Complexity is easy. Simplicity is hard.  
