@@ -25,23 +25,14 @@ The computing scientists main challenge is not to get confused by the complexiti
 As complexity rises, precise statements lose meaning, and meaningful statements lose precision.   
 --Lotfi Zadeh
 
-I have made this letter longer because I did not have time to make it shorter.   
--- Blaise Pascal 
-
 For I am a bear of very little brain and long words bother me.   
 -- Winnie the Pooh
 
 Don't use a big word where a diminutive one will suffice.  
 -- Anon
 
-The hardest to learn was the lest complicated.  
--- Indigo Girls
-
 Why is "abbreviation" such a long word?   
 -- Anon
-
-Complexity is easy. Simplicity is hard.  
---Unknown
 
 It ain't rocket science.   
 -- Anon
