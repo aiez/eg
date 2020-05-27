@@ -18,9 +18,6 @@ src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a
      href='https://coveralls.io/github/aiez/lua?branch=master'><img i
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
 
-Give me the fruitful error any time, full of seeds, bursting with its own corrections. You can keep your sterile truth for yourself.  
--- Vilfredo Pareto
-
 
 The computing scientists main challenge is not to get confused by the complexities of (their) own making.    
 -- E.W. Dijkstra
@@ -31,23 +28,11 @@ As complexity rises, precise statements lose meaning, and meaningful statements 
 I have made this letter longer because I did not have time to make it shorter.   
 -- Blaise Pascal 
 
-The most incomprehensible thing about the world is that it is comprehensible.   
--- Albert Einstein
-
-Inside every large program, there is a small program trying to get out.  
--- Tony Hoare
-
 For I am a bear of very little brain and long words bother me.   
 -- Winnie the Pooh
 
-
-
 Don't use a big word where a diminutive one will suffice.  
 -- Anon
-
-
-In any field find the strangest thing and then  explore it.   
--- John Archibald Wheeler
 
 The hardest to learn was the lest complicated.  
 -- Indigo Girls
@@ -67,31 +52,37 @@ Less, but better.
 Less. Plz.   
 -- Tim Menzies
 
-----------
-Are you tired of complex AI models that are slow to build and hard to explain?
+## A "Simplicity-first" Approach to AI
 
-Researchers usually seek solutions that are more intricate and complex;
-Yet empirically and theoretically, sometimes, the world we can know is very simple;
+Before you waste time and money and   much CPU to generate
+complex and opaque AI models, perhaps it is prudent to first try something simple.
+All the AI methods explored here are quick to code and execute. 
+At  the very least, they will  quickly
+generate an
+baseline AI model against which you demonstrate the  superiority   of  some other, seemingly more sophisticated, method.
+And at the very most, if these simple methods work well, then you have avoided all that extra modeling.
 
-For over a decade, researchers at the RAISE lab (AI for SE, and SE for AI) have explored a
-_simplicity conjecture_. 
-If a model can be generated from a table of data, then that table contains enough examples to learn that model.
-That is, many rows are actually echoes of a smaller number of underlying effects called prototypes.
-
-we were so foolish as to try to build high-dimensional models, we would fail as the region where we can find related examples would become vanishingly small. Note that this is often called the curse of dimensionality.
-
-- <em>When the dimensionality increases, the volume of the space increases so
- fast that the available data becomes sparse. This sparsity is problematic for any 
-method that requires statistical significance. In order to obtain a statistically 
-sound and reliable result, the amount of data needed to support the result often grows
- exponentially with the dimensionality.</em> -- Wikipedia
-
-Note this curse can also be a blessing:
-
-- Because it is impossible to find the data to support bigger models, then all we need ever do is build small ones;
-- Which, in turn, means that we might be able to build those small models for just a little data;
-- Which also means that we need only share small amounts of data.
+But ultimately it is an experimental issue whether or not simplicity-first works for some new problem.
+Hence, we call this book
+"Is AI Simple?". Also, we invite you to apply its methods to your problems, then report back the results.
+In this way, with time, we will build up lists of problems that should (or should not) be tackled
+using
+simpler AI.
 
 
+This book is in two parts. Firstly, some case studies
+are presented where "simplicity-first" performed very well indeed.
 
+Second, there are   
+15 coding challenges aimed at teaching programmers how to write simpler AI
+systems:
+
+-  Each challenge comes with a fully working solutions, which
+you need to 
+your favorite language.
+You have mastered the challenge when your unit tests produce similar output to our unit tests.
+- These challenges could be used as a guided self-study or as the basis of a graduate class on programming AI
+systems.
+Each challenge comes with just enough theory to understand the problem, as well as numerous suggestions on how
+this code might be improved.
 
