@@ -97,7 +97,7 @@ As complexity rises, precise statements lose meaning, and meaningful statements 
 -- Lotfi Zadeh
 
 The computing scientists main challenge is not to get confused by the complexities of (their) own making.    
--- E.W. Dijkstra
+-- Edsger  Dijkstra
 
 Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.    
 ― Edsger Dijkstra
