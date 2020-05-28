@@ -1,4 +1,4 @@
-<a name=top><img align=right width=400 src="https://github.com/aiez/eg/blob/master/etc/img/dragon.png">
+<a name=top><img align=right width=270 src="https://github.com/aiez/eg/blob/master/etc/img/dragon.png">
 <h1><a href="/README.md#top">Is AI Easy?</a></h1> 
 <p> <a
 href="https://github.com/aiez/eg/blob/master/LICENSE">license</a> :: <a
@@ -25,54 +25,58 @@ The computing scientists main challenge is not to get confused by the complexiti
 As complexity rises, precise statements lose meaning, and meaningful statements lose precision.   
 --Lotfi Zadeh
 
-For I am a bear of very little brain and long words bother me.   
+For I am a bear of very little brain and long words bother me.    
 -- Winnie the Pooh
 
-Don't use a big word where a diminutive one will suffice.  
+The art of being wise is the art of knowing what to overlook.     
+-- William James
+
+Don't use a big word where a diminutive one will suffice.    
 -- Anon
 
-Why is "abbreviation" such a long word?   
--- Anon
+Simplicity is the ultimate sophistication.     
+-- William James
 
-Less, but better.  
+Less, but better.    
 -- Deiter Rams
 
-Less. Plz.   
+Less. Plz.     
 -- Tim Menzies
 
 ## A "Simplicity-first" Approach to AI
 
-Before you waste time and money (and   much CPU) to build
-complex and opaque AI models, maybe you should first try something simpler?
+Before you waste time and money (and   much CPU) to build complex
+and opaque AI models, maybe you should first try something simpler?
 
-All the AI methods explored here are quick to code and fast to run. 
-At  the very least, these methods will  quickly
-generate an
-baseline AI model against which you demonstrate the  superiority   of  some other, seemingly more sophisticated, method.
-And at the very most, if these simple methods work well, then you have avoided all that extra modeling.
+All the AI methods explored here are quick to code and fast to run.
+At  the very least, these methods will  quickly generate an baseline
+AI model against which you demonstrate the  superiority   of  some
+other, seemingly more sophisticated, method.  And at the very most,
+if these simple methods work well, then you have avoided all that
+extra modeling.
 
-But ultimately it is an experimental issue whether or not simplicity-first works for some new problem.
-Hence, we call this book
-"Is AI Simple?". Also, we invite you to apply its methods to your problems, then report back the results.
-In this way, with time, we will build up lists of problems that should (or should not) be tackled
-using
-simpler AI.
+But ultimately it is an experimental issue whether or not
+simplicity-first works for some new problem.  Hence, we call this
+book "Is AI Simple?". Also, we invite you to apply its methods to
+your problems, then report back the results.  In this way, with
+time, we will build up lists of problems that should (or should
+not) be tackled using simpler AI.
 
+This book is in two parts. Firstly, some case studies are presented
+where "simplicity-first" performed very well indeed.  Secondly,
+there are 15 coding challenges aimed at teaching programmers how
+to write simpler AI systems:
 
-This book is in two parts. Firstly, some case studies
-are presented where "simplicity-first" performed very well indeed.
-Secondly, there are   
-15 coding challenges aimed at teaching programmers how to write simpler AI
-systems:
+- These challenges could be used as a guided self-study or as the
+  basis of a graduate class on programming AI systems.  Each challenge
+  comes with just enough theory to understand the problem, as well
+  as numerous suggestions on how this code might be improved.
+- Each challenge comes with a fully working example, which you
+  need to your favorite language.  You have mastered the challenge
+  when your unit tests produce similar output to our unit tests.
 
-- These challenges could be used as a guided self-study or as the basis of a graduate class on programming AI
-systems.
-Each challenge comes with just enough theory to understand the problem, as well as numerous suggestions on how
-this code might be improved.
--  Each challenge comes with a fully working example, which
-you need to 
-your favorite language.
-You have mastered the challenge when your unit tests produce similar output to our unit tests.
+For reasons of simplicity and portability (especially to IOT devices),
+we code our examples in LUA-- which you can just treat as a executable
+specification (so you will not need to code in LUA to use this
+book).
 
-For reasons of simplicity and portability (especially to IOT devices), we code our examples in LUA-- which
-you can just treat as a executable specification (so you will not need to code in LUA to use this book).
