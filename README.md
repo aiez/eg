@@ -57,6 +57,8 @@ book).
 
 ## Quotes on Simplicity
 
+<img align=right width=250 src="https://github.com/aiez/eg/blob/master/etc/img/network.png">
+
 Less. Plz.     
 -- timm
 
