@@ -55,7 +55,7 @@ we code our examples in LUA-- which you can just treat as a executable
 specification (so you will not need to code in LUA to use this
 book).
 
-## Quotes on Simplicity
+## On Simplicity
 
 <img align=right width=400 src="https://github.com/aiez/eg/blob/master/etc/img/network.png">
 
