@@ -31,10 +31,11 @@ extra modeling.
 
 But ultimately it is an experimental issue whether or not
 simplicity-first works for some new problem.  Hence, we call this
-book "Is AI Simple?". Also, we invite you to apply its methods to
-your problems, then report back the results.  In this way, with
-time, we will build up lists of problems that should (or should
-not) be tackled using simpler AI.
+book "Is AI Simple?" and we offer you the following challenge.  We
+invite you to apply our methods to your own problems, then tell us
+how it all goes.  In this way, with time, we will build up lists
+of problems that should (or should not) be tackled using simpler
+AI.
 
 This book is in two parts. Firstly, some case studies are presented
 where "simplicity-first" performed very well indeed.  Secondly,
@@ -100,8 +101,4 @@ The computing scientists main challenge is not to get confused by the complexiti
 
 Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.    
 ― Edsger Dijkstra
-
-Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius-  and a lot of courage to move in the opposite direction.    
--- E.F. Schumacher
-
 
