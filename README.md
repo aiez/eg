@@ -22,12 +22,12 @@ src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Cov
 Before you waste time and money (and   much CPU) to build complex
 and opaque AI models, maybe you should first try something simpler?
 
-All the AI methods explored here are quick to code and fast to run.
-At  the very least, these methods will  quickly generate an baseline
-AI model against which you demonstrate the  superiority   of  some
-other, seemingly more sophisticated, method.  And at the very most,
-if these simple methods work well, then you have avoided all that
-extra modeling.
+For example, all the AI methods explored here are quick to code and
+fast to run.  If you applied them to your problems then, at  the
+very least, you will get a baseline system which you could use to
+show the  superiority   of  any other other, seemingly more
+sophisticated, method.  And at the very most, if these simple methods
+work well, then you have avoided all that extra modeling.
 
 But ultimately it is an experimental issue whether or not
 simplicity-first works for some new problem.  Hence, we call this
