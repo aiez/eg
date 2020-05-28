@@ -19,29 +19,55 @@ src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
 
 
+Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius — and a lot of courage to move in the opposite direction.    
+- E.F. Schumacher
+
+Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better. 
+― Edsger Dijkstra
+
 The computing scientists main challenge is not to get confused by the complexities of (their) own making.    
--- E.W. Dijkstra
+- E.W. Dijkstra
 
 As complexity rises, precise statements lose meaning, and meaningful statements lose precision.   
---Lotfi Zadeh
+- Lotfi Zadeh
+
+Truth is ever to be found in simplicity, and not in the multiplicity and confusion of things.  
+- Issac Newton
 
 For I am a bear of very little brain and long words bother me.    
--- Winnie the Pooh
+- Winnie the Pooh
 
 The art of being wise is the art of knowing what to overlook.     
--- William James
+- William James
+
+One day I will find the right words, and they will be simple.   
+- Jack Kerouac
+
+
+Our life is frittered away by detail. Simplify, simplify.    
+― Henry David Thoreau
 
 Don't use a big word where a diminutive one will suffice.    
--- Anon
+- Anon
+
+
+Half of mathematics is the art of saving space.    
+― Mokokoma Mokhonoana
+
+Or, rather, let us be more simple and less vain.      
+- Jean-Jacques Rousseau
 
 Simplicity is the ultimate sophistication.     
--- William James
+- William James
+
+It's easy to be heavy; hard to be light.    
+― G.K. Chesterton
 
 Less, but better.    
--- Deiter Rams
+- Deiter Rams
 
 Less. Plz.     
--- Tim Menzies
+- timm
 
 ## A "Simplicity-first" Approach to AI
 
