@@ -27,7 +27,7 @@ Less, but better.
 -- Deiter Rams
 
 It's easy to be heavy; hard to be light.    
-s--― G.K. Chesterton
+--― G.K. Chesterton
 
 Simplicity is the ultimate sophistication.     
 -- William James
@@ -65,7 +65,7 @@ The computing scientists main challenge is not to get confused by the complexiti
 Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.    
 ― Edsger Dijkstra
 
-Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius — and a lot of courage to move in the opposite direction.    
+Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius-  and a lot of courage to move in the opposite direction.    
 -- E.F. Schumacher
 
 
