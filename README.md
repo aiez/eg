@@ -22,7 +22,7 @@ src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Cov
 Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius — and a lot of courage to move in the opposite direction.    
 -- E.F. Schumacher
 
-Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better. 
+Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.    
 ― Edsger Dijkstra
 
 The computing scientists main challenge is not to get confused by the complexities of (their) own making.    
@@ -44,12 +44,11 @@ One day I will find the right words, and they will be simple.
 -- Jack Kerouac
 
 
-Our life is frittered away by detail. Simplify, simplify.    
-― Henry David Thoreau
-
 Don't use a big word where a diminutive one will suffice.    
 -- Anon
 
+Our life is frittered away by detail. Simplify, simplify.    
+― Henry David Thoreau
 
 Half of mathematics is the art of saving space.    
 ― Mokokoma Mokhonoana
