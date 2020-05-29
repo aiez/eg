@@ -109,8 +109,7 @@ function Cocomo:risk()
 end
 
 function Cocomo.header()
-  local t,c = {},Cocomo()
-  lib.oo(c._meta)
+  local t, c = {}, Cocomo()
   for k,_ in lib.keys(c._meta) do t[#t+1] = k end
   t[#t+1] = "<effort"
   t[#t+1] = "<risk"
@@ -118,12 +117,12 @@ function Cocomo.header()
 end
 
 function Cocomo.rows(n)
-  local c= Cocomo()
   n = n or 100
   return function ()
     if n > 0 then
       n = n - 1
       local t = {}
+      local c= Cocomo()
       for _,range in lib.keys(c._meta) do
         t[#t+1] = math.floor(range.x)
       end

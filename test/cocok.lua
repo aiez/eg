@@ -1,4 +1,5 @@
 require "ok"
+local lib = require("lib")
 
 local Cocomo = require "coc" 
 
@@ -10,9 +11,11 @@ ok{ coc = function(    c)
   end
 end}
 
-local pcat=function (z) return print(table.concat(z,", ")) end
 
 ok{ coc1 = function( c)
-    c = Cocomo()
-    pcat( c:header() )
-end}
+       c = Cocomo()
+       lib.o( c:header() )
+       for row in Cocomo.rows(10) do
+          lib.o(row)
+       end
+end} 
