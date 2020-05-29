@@ -19,6 +19,18 @@ src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
 
 
+Please pretend, just for a moment, that you
+live in a world full of simple things. the
+world is very simple. If that world, 
+on the value of
+simplicity. What if, just for moment, you pretended
+that all the  world, and all its contents, are very simple.
+In s is simple.
+
+was an inherently simple place and
+that the complexity we perceive 
+
+
 Before you waste time and money (and   much CPU) to build complex
 and opaque AI models, maybe you should first try something simpler?
 
@@ -66,8 +78,14 @@ Less. Plz.
 Less, but better.    
 -- Deiter Rams
 
-It's easy to be heavy; hard to be light.    
---― G.K. Chesterton
+Truth is shorter than fiction.   
+-- Irving Cohen
+
+...pursue ultimate simplicity...
+-- Marie Kondō
+
+It's easy to be heavy; hard to be light.     
+-- G.K. Chesterton
 
 Simplicity is the ultimate sophistication.     
 -- William James
@@ -84,6 +102,9 @@ Our life is frittered away by detail. Simplify, simplify.
 Don't use a big word where a diminutive one will suffice.    
 -- Anon
 
+One must learn to be simple, anyone can manage to be complex.   
+-- Amit Kalantri
+
 One day I will find the right words, and they will be simple.   
 -- Jack Kerouac
 
@@ -92,6 +113,9 @@ The art of being wise is the art of knowing what to overlook.
 
 For I am a bear of very little brain and long words bother me.    
 -- Winnie the Pooh
+
+Life only puzzles us because we're not simple enough to understand it.
+-- Marty Rubin
 
 Truth is ever to be found in simplicity, and not in the multiplicity and confusion of things.  
 -- Issac Newton
