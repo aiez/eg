@@ -43,6 +43,15 @@ end
 --]]
 function L.same(z) return z end
 
+function L.any(a) 
+  return a[1 + math.floor(#a*math.random())] end
+
+function L.anys(a,n,   t) 
+  t={}
+  for i=1,n do t[#t+1] = any(a) end
+  return t
+end
+
 local function what2do(t,f)
   if not f                 then return L.same end
   if type(f) == 'function' then return f end
