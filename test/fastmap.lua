@@ -2,9 +2,14 @@ require "ok"
 local lib= require "lib"
 local Fastmap= require "fastmap"
 
-a={}
-head={}
-for r in lib.csv("../test/data/raw/auto93.csv") do
-   if head then a[#a+1] =r else header = r end
+function _fast(rows,head) 
+  rows = {}
+  for row in lib.csv("../test/data/raw/auto93.csv") do
+    if head then rows[#rows+1] = row else head = row end
+  end
+  Fastmap(head, rows):divs(rows):show()
 end
-Fastmap(head, r):rdiv(r)
+
+_fast()
+
+--ok{fast= _fast}

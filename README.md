@@ -129,3 +129,14 @@ The computing scientists main challenge is not to get confused by the complexiti
 Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.    
 ― Edsger Dijkstra
 
+## Rules for Simpler AI
+
+- The goal is not models, but insight. Every answer should propose N better questions for round i+1. 
+  Find and cluster space of possible solutions. Report a summary of each cluster.
+
+## Plan
+
+When I first meet simplicity. 2 pages, references, code.
+
+- Greg Gay: BORE
+

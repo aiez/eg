@@ -21,13 +21,17 @@ end
 ## Print Stuff
 
 --]]
-function M.o(z) print(table.concat(z,",")) end
+function M.o(z,pre,   s,sep) 
+  s,sep = (pre or "")..'{', ""
+  for _,v in pairs(z or {}) do s = s..sep..v; sep=", " end
+  print(s..'}')
+end
 
 function M.oo(t,pre,    indent,fmt)
   pre=pre or ""
   indent = indent or 0
   if indent < 10 then
-    for k, v in pairs(t) do
+    for k, v in pairs(t or {}) do
       if not (type(k)=='string' and k:match("^_")) then
         fmt = pre .. string.rep("|  ", indent) .. k .. ": "
         if type(v) == "table" then

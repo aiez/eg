@@ -5,7 +5,7 @@
 
 package.path = '../src/?.lua;' .. package.path
 
-local pass,fail,seed,tiny = 0,0,1,0.00001
+local seed, tries,fails,seed = 1,0,0.00001
 
 local function rogues()
   local no = {the=true, TESTING=true,
@@ -25,16 +25,17 @@ function ok(t)
   local pre=TESTING  or ""
   pre= "-- test "..pre.." : " 
   for s,x in pairs(t) do  
-    io.write(pre .. s .. " ") 
-    pass = pass + 1
+    tries = tries + 1
     local t1 = os.clock()
     math.randomseed(1)
     local passed,err = pcall(x) 
-    local t2= os.clock()
-    print(string.format (" : %8.6f secs", t2-t1))
-    if not passed then   
-      fail = fail + 1
-      print("Failure: ".. err .. pass/(pass+fail+tiny)) end 
+    if passed then
+       local t2= os.clock()
+       print(string.format (pre..s.." : %8.6f secs", t2-t1))
+    else
+      fails = fails + 1
+      print(string.format(pre..s.." FAILED! %s %.0f %%",
+                          err,100*tries/(tries+fails))) end 
   end 
   rogues()
 end
