@@ -8,6 +8,15 @@ local M = {}
 M.the   = require "the" 
 M.class = require "class" 
 --[[
+## Identity
+--]]
+local id=0
+
+function M.id (x)
+  if not x._id then id= id + 1; x._id= id end
+  return x._id
+end
+--[[
 
 ## Maths Stuff
 
@@ -86,6 +95,20 @@ function M.keys(t)
     if i < #u then 
       i = i+1
       return u[i], t[u[i]] end end 
+end
+
+function M.map(t,f, u)
+  u, f = {}, what2do(t,f)
+  for i,v in pairs(t or {}) do u[i] = f(v) end  
+  return u
+end
+
+function M.select(t,f,   u)
+  u, f = {}, what2do(t,f)
+  for i,v in pairs(t or {}) do 
+    if f(v) then u[#u+1] = v end  
+  end
+  return u
 end
 --[[
 
