@@ -19,20 +19,12 @@ src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
 
 
-Please pretend, just for a moment, that you
-live in a world full of simple things. the
-world is very simple. If that world, 
-on the value of
-simplicity. What if, just for moment, you pretended
-that all the  world, and all its contents, are very simple.
-In s is simple.
+Please pretend, just for a moment, imagine that very quickly, we can find the simple models that  let us succinctly descrine the world around us. In that world, models are easy to grow and maintain. Such models can be easily understood, so we can use them to find what matters most (or least). Further we audit such models to find and fixes sources of biases
+in their conclusions. Lastly, such models are not resource intensive to build or deploy so anyone can build them and everyone everywhere can use them.
 
-was an inherently simple place and
-that the complexity we perceive 
-
-
+Do you live in that work? Have you checked?
 Before you waste time and money (and   much CPU) to build complex
-and opaque AI models, maybe you should first try something simpler?
+and opaque AI models, have you first tried something simpler?
 
 For example, all the AI methods explored here are quick to code and
 fast to run.  If you applied them to your problems then, at  the
@@ -41,7 +33,7 @@ show the  superiority   of  any other other, seemingly more
 sophisticated, method.  And at the very most, if these simple methods
 work well, then you have avoided all that extra modeling.
 
-But ultimately it is an experimental issue whether or not
+Ultimately it is an experimental issue whether or not
 simplicity-first works for some new problem.  Hence, we call this
 book "Is AI Simple?" and we offer you the following challenge.  We
 invite you to apply our methods to your own problems, then tell us
