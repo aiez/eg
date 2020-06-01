@@ -1,11 +1,13 @@
 --[[
-# Dots
+# Tab
 
-Given dots of  data (floating around some space),
+Given rows and columns of data,
 extract some structure (a hierarchical clustering).
 --]]
 
 local lib = require "lib"
+local Sym = require "sym"
+local Num = require "num"
 
 local function want(t,f,   u) 
   u,f = {}, f or lib.klass
@@ -14,7 +16,7 @@ local function want(t,f,   u)
 end
 
 local function cells(x) return x.cells and x.cells or x  end
-local function zero1(z) return math.max(0,math.min(1,z)) end
+local function zero1(z) return z end --math.max(0,math.min(1,z)) end
 
 local Tree = lib.class()
 function Tree:_init(dots,rows)
@@ -56,43 +58,39 @@ function Tree:place(row,      x,kid)
 end
 
 -- ---------------------------------------
-local Dots = lib.class()
-function Dots:_init(headers, rows, using)
+local Tab = lib.class()
+function Tab:_init(headers, rows, using)
   self.far     = 0.9
   self.p       = 2
   self.debug   = false
   self.min     = (#rows)^0.5
   self.max     = 256
-  self.lo      = {}
-  self.hi      = {}
   self.use     = want(headers,lib.goal)
   self.nums    = want(headers,lib.num)
   self.strange = 0.2 -- lower numbers mean less things are strange
+  self.logs    = {}
+  for i,s in pairs(headers) do
+   self.logs[i]= lib.num(s) and Num(s,i) or Sym(s,i)
+  end
 end
 
-function Dots:divs(rows)
-  local some = {}
-  if   #rows <= self.max
-  then for _,r in pairs(rows) do 
-         some[#some+1] = self:lohi(r) end
-  else for i=1,self.max do 
-         some[#some+1] = self:lohi(lib.any(rows)) end
+function Tab:log(a,  b)
+  b = cells(a)
+  for i,c in pairs(self.logs) do b[i] = c:add(b[c.pos]) end
+  return a
+end
+
+function Tab:divs(a)
+  local b = {}
+  if   #a <= self.max 
+  then for _,r in pairs(a) do b[#b+1]= self:log(r)          end
+  else for i = 1,self.max  do b[#b+1]= self:log(lib.any(a)) end
   end
-  self.tree = Tree(self,some)
+  self.tree = Tree(self,b)
   return self.tree
 end
 
-function Dots:lohi(row)
-  local lst = cells(row)
-  for _,c in pairs(self.use) do
-    x = lst[c]
-    if x ~= "?" then
-      self.lo[c]= math.min(x, self.lo[c] or  10^64)
-      self.hi[c]= math.max(x, self.hi[c] or -10^64) end end
-  return row
-end
-
-function Dots:div(rows)
+function Tab:div(rows)
   local any,l,r,c,x,n,xrows,ls,rs,tmp
   any = lib.any(rows)
   l   = self:distant(any, rows)
@@ -112,14 +110,15 @@ function Dots:div(rows)
   return c,n,l,r,ls,rs
 end
 
-function Dots:project(row,l,r,c,     a,b,x)
+function Tab:project(row,l,r,c,     a,b,x)
   a = self:dist(row, l)
   b = self:dist(row, r)
   x = zero1( (a^2 + c^2 - b^2) / (2*c))
+  print(x)
   return x
 end
 
-function Dots:distant(row1,rows,   a)
+function Tab:distant(row1,rows,   a)
   a = {}
   for _,row2 in pairs(rows) do 
     a[#a+1]={row=row2,  d=self:dist(row1,row2)} 
@@ -128,37 +127,16 @@ function Dots:distant(row1,rows,   a)
   return a[ math.floor( #a * self.far ) ].row
 end
 
-function Dots:dist(r,s)
-  local no="?"
-
-  local function norm(x,c,      lo,hi,d)
-    lo, hi = self.lo[c], self.hi[c]
-    d = zero1( (x-lo)/(hi-lo+0.00001) ) 
-    --print("x",x,"lo",lo,"hi",hi,"d",d)
-    return d end
-
-  local function numd(c,x,y)
-    if x==no and y==no then return 1 
-    elseif x==no       then y=norm(y,c); x= y>0.5 and 0 or 1
-    elseif y==no       then x=norm(x,c); y= x>0.5 and 0 or 1
-    else  x,y = norm(x,c), norm(y,c);                   
-    end
-    return math.abs(x - y)
-  end
-
-  local function symd(c,x,y)
-    if x==no and y==no then return 1 end
-    return x==y and 0 or 1 end
-  -- -------------------------
-  local d,n = 0,0.0001
-  r,s = cells(r), cells(s)
+function Tab:dist(r,s,       d,n,x,y,inc)
+  d, n = 0, 0.0001
+  r, s = cells(r), cells(s)
   for _,c in pairs(self.use) do
-    local x,y = r[c], s[c]
-    local inc = self.nums[c] and numd(c,x,y) or symd(x,c,y)
-    d = d + inc^self.p  
-    n  = n+1
+    x, y = r[c], s[c]
+    inc  = self.logs[c]:add(x,y)
+    d    = d + inc^self.p  
+    n    = n + 1
   end
   return (d/n)^(1/self.p) 
 end
 
-return Dots
+return Tab

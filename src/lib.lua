@@ -95,7 +95,8 @@ end
 function c(s,k) return string.sub(s,1,1)==k end
 
 function M.klass(x) return c(x,"!") end 
-function M.goal(x)  return c(x,"<") or c(x,">") end
+function M.less(x)  return c(x,"<") end
+function M.goal(x)  return c(x,">") or M.less(x) end
 function M.num(x)   return c(x,"$") or M.goal(x) end
 function M.y(x)     return M.klass(x) or M.goal(x) end
 function M.x(x)     return not M.y(x) end
