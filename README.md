@@ -19,7 +19,7 @@ src="https://zenodo.org/badge/263210595.svg" alt="DOI"></a><a
 src='https://coveralls.io/repos/github/aiez/eg/badge.svg?branch=master' alt='Coverage Status' /></a></p>
 
 
-Imagine  very quickly, we can find the simple models that  let us succinctly descrine the world around us. In that world, models are easy to grow and maintain. Such models can be easily understood, so we can use them to find what matters most (or least). Further we audit such models to find and fixes sources of biases
+Imagine  that, very quickly, we can find  simple models that  let us succinctly descrine the world around us. In that world, models are easy to grow and maintain. Such models can be easily understood, so we can use them to find what matters most (or least). Further we audit such models to find and fixes sources of biases
 in their conclusions. Lastly, such models are not resource intensive to build or deploy so anyone can build them and everyone everywhere can use them.
 
 Do you live in that work? Have you checked?
