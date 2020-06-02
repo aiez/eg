@@ -1,15 +1,13 @@
 --[[
-# `Table`s of rows and columns
+# `Data`s = rows and columns
 
-Inside a `Table`, the `cols` summarize the columns of each `rows`.
+Inside a `Data`, the `cols` summarize the columns of each `rows`.
 --]]
 local lib  = require "lib"
 local Num  = require "num"
 local Sym  = require "sym"
+local Row  = require "row"
 local Data = lib.class()
-
-local function cells(x) 
-  return x.cells==nil and x.cells or x end
 
 function Data:_init(headers, rows)
   self.cols = {}
@@ -19,26 +17,32 @@ function Data:_init(headers, rows)
 end
 
 function Data:add(a) 
-  return #self.cols==0 and self:head(a) or self:row(a) end
+  if #self.cols==0 then self:head(a) else self:row(a) end
+end
 
 function Data:head(a)
-  for i,s in pairs( cells(a) ) do
-    print(":",i,s)
+  for i,s in pairs(a) do
     self.cols[i]= lib.num(s) and Num(s,i) or Sym(s,i) end
 end
 
+function Data:add(rows) 
+  for _,row in pairs(rows) do self:row(row) end end
+
 function Data:row(a)
-  local b = cells(a)
-  lib.oo(b)
-  print("n",#self.cols)
-  for _,c in pairs(self.cols) do print("pos",c.pos); c:add( b[c.pos] ) end
+  local row = Row(a)
+  for _,c in pairs(self.cols) do 
+    c:add( row.cells[c.pos] ) 
+  end
+  self.rows[#self.rows + 1] = row
+  return a
 end
 
 function Data:clone(rows) 
-  return Data(lib.map(self.cols,"txt"),rows or {}) end
+  return Data(lib.map(self.cols,"txt"), rows or {}) end
 
 function Data:show(cols) 
-  return lib.map( cols or i.cols, "show") end
+  return lib.map( cols or self.cols, 
+                  function(c) return c:show() end) end
 
 function Data:import(f)
   for row in lib.csv(f) do self:add(row) end

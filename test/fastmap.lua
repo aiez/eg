@@ -1,14 +1,12 @@
 require "ok"
 local lib= require "lib"
-local Tab= require "fastmap"
+local Data= require "data"
+local Geometry = require "fastmap"
 
-function _fast(rows,head) 
-  rows = {}
-  for row in lib.csv("../test/data/raw/auto93.csv") do
-    if head then rows[#rows+1] = row else head = row end
-  end
-  local tree = Tab(head, rows):cluster(rows)
-  tree:show()
+function _fast(    d) 
+  d = Data():import("../test/data/raw/auto93.csv") 
+  --local tree = Geometry(ds):cluster()
+  --ree:show()
 end
 
 _fast()

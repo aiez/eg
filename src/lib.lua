@@ -69,11 +69,12 @@ local function what2do(t,f)
   if not f                 then return M.same end
   if type(f) == 'function' then return f end
   if type(f) == 'string'   then
-    return function (z) return z[f] end
-  end
-  local m = getmetable(t)
-  return m and m[f] or assert(false,"bad function")
-end
+    if  getmetatable(t) then
+      f = getmetatable(t)[f]
+      if f then
+        return function (z) return f(z)  end end end end 
+  return function (z) return f[z] end 
+end 
 
 function M.select(t,f,     g,u)
   u, g = {}, what2do(t, f)

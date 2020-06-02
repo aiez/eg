@@ -8,9 +8,10 @@ extract some structure (a hierarchical clustering).
 local lib = require "lib"
 local Sym = require "sym"
 local Num = require "num"
+local Data= require "data"
 
 local function cells(x) return x.cells and x.cells or x  end
-local function zero1(z) return -math.max(0,math.min(1,z)) end
+local function zero1(z) return math.max(0,math.min(1,z)) end
 
 local Tree = lib.class()
 function Tree:_init(geometry,rows)
@@ -50,72 +51,26 @@ function Tree:place(row,      x,kid)
 end
 
 -- ---------------------------------------
-local Table = lib.class()
-function Table:_init(headers, rows)
-  self.cols = {}
-  self.rows = {}
-  self.headers(headers or {})
-  for _,row in pairs(rows or {}) do
-    self:add(row)
-  end
-end
-
-function Table:add(a)
-  if #self.cols == 0 then self:headers(a) else self:row(a) end
-  return a
-end
-
-function Table:headers(a)
-  for i,s in pairs( cells(a) ) do
-    self.cols[i]= lib.num(s) and Num(s,i) or Sym(s,i) end
-end
-
-function Table:row(a)
-  local b = cells(a)
-  for _,col in pairs(self.cols) do col:add( b[col.pos] ) end
-end
-
-function Table:clone(rows)
-  return Table( lib.map(self.cols, "txt"), rows)
-end
-  
--- ---------------------------------------
 local Geometry = lib.class()
-function Geometry:_init(headers, rows, using)
+function Geometry:_init(data, using)
   self.far     = 0.9
   self.p       = 2
   self.debug   = false
   self.min     = (#rows)^0.5
   self.max     = 256
-  self.strange = 0.2 -- lower numbers mean less things are strange
-  self.logs    = {}
-  for i,s in pairs(headers) do
-   self.logs[i]= lib.num(s) and Num(s,i) or Sym(s,i)
+  self.strange = 0.2 
+  self.data    = data:clone( data.rows )
+  self.use     = lib.select(self.data.cols, 
+                     function(z) return lib.goal(z.txt) end)
+end
+
+function Geometry:cluster(    rows)
+  rows = self.data.rows
+  if   #rows <= self.max 
+  then for _,r in pairs(rows) do self.data:row(r)          end
+  else for i=1,self.max    do self.data:row(lib.any(rows)) end
   end
-  self.use     = lib.select(self.logs, function(z) 
-                              return lib.goal(z.txt) end)
-end
-
-function Geometry:rows(rows)
-  lib.map(rows, function(row) self:row(row) end)
-end
-
-function Geometry:row(a, b)
-  b = cells(a)
-  lib.map(self.logs, function(col) col:add( b[col.pos] ) end)
-  return a
-end
-
-function Geometry:cluster(a)
-  local b = {}
-  if   #a <= self.max 
-  then for _,r in pairs(a) do b[#b+1]= r          end
-  else for i = 1,self.max  do b[#b+1]= lib.any(a) end
-  end
-  self:rows(b)
-  lib.map(b, function (z) self:row(z) end)
-  self.tree = Tree(self,b)
-  return self.tree
+  return Tree(self,self.data.rows)
 end
  
 function Geometry:div(rows)
@@ -154,12 +109,6 @@ function Geometry:distant(row1,rows,   a)
   return a[ math.floor( #a * self.far ) ].row
 end
 
-function Geometry:dist(r,s,       d)
-  d, r, s = 0, cells(r), cells(s)
-  for _,c in pairs(self.use) do
-    d  = d + c:dist( r[c.pos], s[c.pos])^self.p
-  end
-  return (d/(#self.use))^(1/self.p) 
-end
+function Geometry:dist(r,s) return r:dist(s,self.use,self.p) end
 
 return Geometry
