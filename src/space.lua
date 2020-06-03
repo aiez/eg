@@ -11,6 +11,7 @@ function Space:_init(data, using)
   self.data    = data:clone()
   using        = using or lib.goal
   self.use     = self:wanted(using)
+  lib.oo(self.use)
 end
 
 function Space:wanted(f)
