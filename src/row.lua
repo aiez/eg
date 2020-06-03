@@ -3,6 +3,7 @@ local Row = lib.class()
 
 function Row:_init(a) 
   self.cells = a.cells and a.cells or a
+  lib.id(self)
 end
 
 function Row:dist(other,cols,    p,    d,n,inc)

@@ -65,24 +65,6 @@ function M.anys(a,n,   t)
   return t
 end
 
-local function what2do(t,f)
-  if not f                 then return M.same end
-  if type(f) == 'function' then return f end
-  if type(f) == 'string'   then
-    if  getmetatable(t) then
-      f = getmetatable(t)[f]
-      if f then
-        return function (z) return f(z)  end end end end 
-  return function (z) return f[z] end 
-end 
-
-function M.select(t,f,     g,u)
-  u, g = {}, what2do(t, f)
-  for _,v in pairs(t) do
-    if g(v) then u[#u+1] = v  end end
-  return u
-end
-
 function M.cache(f)
   return setmetatable({}, {
       __index=function(t,k) t[k]=f(k);return t[k] end})
@@ -99,18 +81,17 @@ function M.keys(t)
 end
 
 function M.map(t,f, u)
-  u, f = {}, what2do(t,f)
+  u, f = {}, f or M.same
   for i,v in pairs(t or {}) do u[i] = f(v) end  
   return u
 end
 
-function M.select(t,f,   u)
-  u, f = {}, what2do(t,f)
-  for i,v in pairs(t or {}) do 
-    if f(v) then u[#u+1] = v end  
-  end
+function M.select(t,f,     g,u)
+  u, f = {}, f or M.same
+  for _,v in pairs(t) do if f(v) then u[#u+1] = v  end end
   return u
 end
+
 --[[
 
 ## Data stuff
@@ -120,13 +101,13 @@ function c(s,k) return string.sub(s,1,1)==k end
 
 function M.klass(x) return c(x,"!") end 
 function M.less(x)  return c(x,"<") end
-function M.goal(x)  return c(x,">") or M.less(x) end
-function M.num(x)   return c(x,"$") or M.goal(x) end
+function M.goal(x)  return c(x,">")   or M.less(x) end
+function M.num(x)   return c(x,"$")   or M.goal(x) end
 function M.y(x)     return M.klass(x) or M.goal(x) end
-function M.x(x)     return not M.y(x) end
+function M.x(x)     return not M.y(x)   end
 function M.sym(x)   return not M.num(x) end
-function M.xsym(z)  return M.x(z) and M.sym(z) end
-function M.xnum(z)  return M.x(z) and M.num(z) end
+function M.xsym(z)  return M.x(z)    and M.sym(z) end
+function M.xnum(z)  return M.x(z)    and M.num(z) end
 --[[
 
 ## File  stuff
