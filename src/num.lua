@@ -52,17 +52,26 @@ function Num:sd0()
   return (self.m2 / (self.n - 1))^0.5
 end
 
-function Num:norm(x)
-  return x=="?" and x or (x-self.lo)/(self.hi-self.lo+10^-64)
+function Num:norm(x,y)
+  if x=="?" then
+    return x
+  else
+    y=(x-self.lo)/(self.hi-self.lo+10^-64)
+  end
+  print("norm",x,self.lo, self.hi, y)
+
+  return y
 end
 
 function Num:dist(x,y)
+  print("dddd",x,y)
   if     x == "?" and  y == "?" then return 1  
   elseif x == "?" then y = self:norm(y); x=y>0.5 and 0 or 1
   elseif y == "?" then x = self:norm(x); y=x>0.5 and 0 or 1
   else   x = self:norm(x)
          y = self:norm(y)                   
   end
+  print("eeee",x,y)
   return math.abs(x - y)
 end
 

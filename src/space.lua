@@ -20,7 +20,7 @@ function Space:wanted(f)
 end
 
 function Space:sample(    rows)
-  rows = self.data.rows
+  rows = rows or self.data.rows
   if   #rows <= self.max 
   then for _,r in pairs(rows) do self.data:row(r)          end
   else for i=1,self.max    do self.data:row(lib.any(rows)) end
