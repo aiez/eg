@@ -4,7 +4,7 @@ local Data = require "data"
 
 function _data(    d)
   d = Data():import("data/raw/weather.csv")
-  l.oo(d)
+  l.ooo(d)
 end
 
 _data()

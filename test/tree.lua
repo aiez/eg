@@ -1,15 +1,17 @@
 require "ok"
-local lib      = require "lib"
-local Data     = require "data"
-local Tree     = require "tree"
-local Distance = require "distance"
+local l    = require "lib"
+local Data = require "data"
 
-function _fast(    data,dist) 
+local id = l.id
+
+function _dist(    data,t) 
   data = Data():import("../test/data/raw/auto93.csv") 
-  dist = Distance(data, lib.goal)i:sample(data.rows)
-  Tree(dist, data.rows):show()
+  t = data:tree()
+  t:show()
+  print(100, #t.space.data.rows)
+  for _,l in pairs(t.space.leaves) do
+    data:clone(l)
+  end
 end
 
--- _fast()
-
---ok{fast= _fast}
+ok { _dist = _dist }

@@ -11,9 +11,12 @@ function Space:_init(data, using)
   self.data    = data:clone()
   using        = using or lib.goal
   self.use     = self:wanted(using)
-  lib.oo(self.use)
+  self.leaves  = {}
 end
 
+function Space:leaf(x)
+  self.leaves[ #self.leaves+1 ] = x
+end
 function Space:wanted(f)
   return lib.select(self.data.cols, 
                      function(z) return f(z.txt) end)
@@ -51,7 +54,7 @@ end
 function Space:project(row,l,r,c,     a,b)
   a = self:dist(row, l)
   b = self:dist(row, r)
-  return  math.max(0, math.min(1, (a^2 + c^2 - b^2) / (2*c)))
+  return math.max(0, math.min(1, (a^2 + c^2 - b^2) / (2*c)))
 end
 
 function Space:neighbors(r1,rows,   a)

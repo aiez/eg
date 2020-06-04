@@ -4,22 +4,25 @@
 Given rows and columns of data,
 extract some structure (a hierarchical clustering).
 --]]
-
 local lib = require "lib"
 local Sym = require "sym"
 local Num = require "num"
 
-
 local Tree = lib.class()
 function Tree:_init(space,rows)
   local ls,rs
-  self.space  = space
-  self.size = #rows
-  if #rows >= 2*space.min then
-    self.c,self.n,self.l,self.r,ls,rs = space:div(rows)
-    if #ls < #rows and #rs < #rows then
-      self.ls   = Tree(space,ls)
-      self.rs   = Tree(space,rs) end end
+  self.space = space
+  self.size  = #rows
+  if #rows < 2*space.min then 
+    return space:leaf(rows) 
+  end
+  self.c, self.n, self.l, self.r, ls, rs = space:div(rows)
+  if #ls < #rows and #rs < #rows then
+    self.ls = Tree(space,ls)
+    self.rs = Tree(space,rs) 
+  else
+    space:leaf(rows)
+  end 
 end
 
 function Tree:show(pre)

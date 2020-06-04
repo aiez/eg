@@ -29,14 +29,41 @@ end
 
 ## Print Stuff
 
+### String Interpolation
+
+Works for
+
+    print( "%5.2f" % math.pi )
+    print( "%-10.10s %04d" % { "test", 123 } )
+
+--]]
+getmetatable("").__mod = function(a, b)
+  local f, u = string.format, table.unpack
+  if   not b 
+  then return a
+  else return type(b)=="table" and f(a, u(b)) or f(a,b)
+  end
+end
+--[[
+
+### Printing a Table
+
+- For flat tables
+  - `M.o` generates, but does not print, a print string.
+  - `M.oo` generates a prints a string.
+- For nested tables
+  - `M.ooo` generates and prints a nested string
+
 --]]
 function M.o(z,pre,   s,sep) 
-  s,sep = (pre or "")..'{', ""
+  s, sep = (pre or "")..'{', ""
   for _,v in pairs(z or {}) do s = s..sep..v; sep=", " end
-  print(s..'}')
+  return s..'}'
 end
 
-function M.oo(t,pre,    indent,fmt)
+function M.oo(z,pre) print(M.o(z,pre)) end
+
+function M.ooo(t,pre,    indent,fmt)
   pre=pre or ""
   indent = indent or 0
   if indent < 10 then
@@ -45,7 +72,7 @@ function M.oo(t,pre,    indent,fmt)
         fmt = pre .. string.rep("|  ", indent) .. k .. ": "
         if type(v) == "table" then
           print(fmt)
-          M.oo(v, pre, indent+1)
+          M.ooo(v, pre, indent+1)
         else
           print(fmt .. tostring(v)) end end end end
 end
@@ -99,11 +126,11 @@ end
 --]]
 function c(s,k) return string.sub(s,1,1)==k end
 
-function M.klass(x) return c(x,"!") end 
-function M.less(x)  return c(x,"<") end
-function M.goal(x)  return c(x,">")   or M.less(x) end
-function M.num(x)   return c(x,"$")   or M.goal(x) end
-function M.y(x)     return M.klass(x) or M.goal(x) end
+function M.klass(x) return c(x,"!")  end 
+function M.less(x)  return c(x,"<")  end
+function M.goal(x)  return c(x,">")  or M.less(x) end
+function M.num(x)   return c(x,"$")  or M.goal(x) end
+function M.y(x)     return M.klass(x)or M.goal(x) end
 function M.x(x)     return not M.y(x)   end
 function M.sym(x)   return not M.num(x) end
 function M.xsym(z)  return M.x(z)    and M.sym(z) end
@@ -116,8 +143,7 @@ function M.xnum(z)  return M.x(z)    and M.num(z) end
 function M.s2t(s,     sep,t)
   t, sep = {}, sep or ","
   for y in string.gmatch(s,"([^"..sep.."]+)") do 
-     local z = tonumber(y) or y
-     t[#t+1] = z end
+     t[#t+1] = tonumber(y) or y end
   return t
 end
 
