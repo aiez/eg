@@ -135,6 +135,12 @@ function M.x(x)     return not M.y(x)   end
 function M.sym(x)   return not M.num(x) end
 function M.xsym(z)  return M.x(z)    and M.sym(z) end
 function M.xnum(z)  return M.x(z)    and M.num(z) end
+
+function M.cols(all,f)
+  return M.select(all, function(z) return f(z.txt) end)
+end
+
+
 --[[
 
 ## File  stuff

@@ -38,6 +38,12 @@ function Data:import(f)
   return self
 end
 
+function Data:mid(  a) 
+  a = {}
+  for _,col in pairs(self.cols) do a[#a+1] = col:mid() end
+  return Row(a)
+end
+
 function Data:row(a)
   local row = Row(a)
   for _,c in pairs(self.cols) do c:add(row.cells[c.pos]) end
@@ -53,13 +59,15 @@ function Data:show(f,  a)
   return a
 end
 
-function Data:space(using,    s)
+function Data:space(using,max,    s)
   s = Space(self, using or lib.x)
-  return s:sample(self.rows)
+  s.max = max or s.max
+  s = s:sample(self.rows)
+  return s
 end
 
-function Data:tree(using,  s,t)
-  s = self:space(using)
+function Data:tree(using,max,  s,t)
+  s = self:space(using,max)
   t = Tree(s, s.data.rows)
   return t
 end
