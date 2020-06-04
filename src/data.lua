@@ -44,9 +44,14 @@ function Data:row(a)
   self.rows[#self.rows + 1] = row
 end
 
-function Data:show(cols) 
-  return lib.map( cols or self.cols, 
-                  function(c) return c:show() end) end
+function Data:show(f,  a) 
+  a = {}
+  f = f or l.same
+  for _,col in pairs(self.cols) do
+    if f(col.txt) then a[#a+1] = col:show() end
+  end
+  return a
+end
 
 function Data:space(using,    s)
   s = Space(self, using or lib.x)
