@@ -22,9 +22,18 @@ function _dist(    data,t,mids)
         then d1.dom = d1.dom + 1
    end end end end
    table.sort(d, function(a,b) return a.dom > b.dom end)
-   best = d[1].data.rows
-   for _,d1 in pairs(d) do 
-     print(l.o(d1.data:show(l.y)), d1.dom) end
+   best = d[1].data
+   rest = data:clone()
+   for i=2,#d do
+     for _,row in pairs(d[i].data.rows) do
+       if math.random() < 
+          3*#best.rows/(#data.rows - #best.rows) then
+         rest:add( row )
+       end end end
+   print(#best.rows, #rest.rows)
+   l.oo(best:show(l.y))
+   l.oo(rest:show(l.y))
+
 end
 
 _dist()

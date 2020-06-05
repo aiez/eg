@@ -8,16 +8,6 @@ function Sym:_init(txt,pos)
   self.n, self.most, self.mode = 0,0,nil
 end
 
-function Sym:mid() return self.mode  end
-function Sym:var() return self:ent() end
-function Sym:adds(a) 
-  lib.map(a, function(z) self:add(z) end) 
-  return self
-end
-
-function Sym:show() 
-  return string.format("%s = %s", self.txt, self.mode) end
-
 function Sym:add (x,    c)
   if x ~= "?" then 
     c = (self.seen[x] or 0) + 1
@@ -28,13 +18,9 @@ function Sym:add (x,    c)
   return x
 end
 
-function Sym:sub (x,     seen,n)
-  if x ~= "?" then
-    n = self.seen[x]
-    if n and n > 0 then
-      self.n    = self.n - 1
-      self.seen[x] = self.seen[x] - 1 end end
-  return x
+function Sym:adds(a) 
+  lib.map(a, function(z) self:add(z) end) 
+  return self
 end
 
 function Sym:dist(x,y) 
@@ -50,5 +36,21 @@ function Sym:ent(    e,p)
       e = e - p* math.log(p,2) end end
   return e
 end
+
+function Sym:mid() return self.mode  end
+
+function Sym:show() 
+  return string.format("%s = %s", self.txt, self.mode) end
+
+function Sym:sub (x,     seen,n)
+  if x ~= "?" then
+    n = self.seen[x]
+    if n and n > 0 then
+      self.n    = self.n - 1
+      self.seen[x] = self.seen[x] - 1 end end
+  return x
+end
+
+function Sym:var() return self:ent() end
 
 return Sym
