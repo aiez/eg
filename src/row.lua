@@ -18,9 +18,9 @@ end
 
 function Row:dominates(other,cols,    s1,s2,n,x,y,x1,y1)
    s1,s2,n = 0,0,(#cols + 0.00001)
-   for pos,col in pairs(cols) do
-     x  = self.cells[pos]
-     y  = other.cells[pos]
+   for _,col in pairs(cols) do
+     x  = self.cells[col.pos]
+     y  = other.cells[col.pos]
      x1 = col:norm(x)
      y1 = col:norm(y)
      s1 = s1 - 10^(col.w*(x1-y1)/n)

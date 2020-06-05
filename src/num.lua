@@ -18,8 +18,7 @@ function Num:adds(a)
 end
 
 function Num:show()
-   return string.format("%s%s = %.2f", 
-               self.w < 0 and "<" or ">", self.txt, self.mu)
+   return string.format("%s = %.2f", self.txt, self.mu)
 end
 
 function Num:add (x,    d)
