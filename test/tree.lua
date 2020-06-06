@@ -27,7 +27,7 @@ function _dist(    data,t,mids)
    for i=2,#d do
      for _,row in pairs(d[i].data.rows) do
        if math.random() < 
-          3*#best.rows/(#data.rows - #best.rows) then
+          4*#best.rows/(#data.rows - #best.rows) then
          rest:add( row )
        end end end
    print(#best.rows, #rest.rows)

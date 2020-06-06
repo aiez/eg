@@ -65,5 +65,9 @@ function Num:dist(x,y)
   return math.abs(x - y)
 end
 
+function Num:xpect(other)
+  local n1,n2 = self.n, other.n
+  return n1/(n1+n2) * self:var() + n2/(n1+n2)*other:var()
+end
 
 return Num

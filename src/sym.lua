@@ -53,4 +53,9 @@ end
 
 function Sym:var() return self:ent() end
 
+function Sym:xpect(other)
+  local n1,n2 = self.n, other.n
+  return n1/(n1+n2) * self:var() + n2/(n1+n2)*other:var()
+end
+
 return Sym

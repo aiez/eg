@@ -119,6 +119,10 @@ function M.select(t,f,     g,u)
   return u
 end
 
+function M.copy(t)  
+  return type(t) ~= 'table' and t or M.map(t,M.copy)
+end
+
 --[[
 
 ## Data stuff
