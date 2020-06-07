@@ -23,6 +23,26 @@ function Sym:adds(a)
   return self
 end
 
+--[[
+
+### `bore` = best or rest
+
+Assuming class `k` is the best class, score this distribution
+by how well it selects for `k` (where _how well_ is the product
+how well `k` is supported and the probability of `k`.  
+(For more on this measure, see section 4.2 of 
+[this paper](https://dl.acm.org/doi/pdf/10.1145/1321631.1321676).)
+
+--]]
+function Sym:bore(k)
+  local b = self.seen[k]
+  local r = self.n - b
+  b = b   / self.n
+  r = r  /  self.n
+  local support, probability = b, b/(b+r)
+  return support * probability
+end
+
 function Sym:dist(x,y) 
   if x=="?" and y=="?" then return 1 end
   return x==y and 0 or 1 

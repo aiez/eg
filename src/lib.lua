@@ -25,6 +25,10 @@ function M.round(num, places)
   local mult = 10^(places or 0)
   return math.floor(num * mult + 0.5) / mult
 end
+
+function M.bore(b,all)
+  r = all - b; b = b/(b+r); r = r/(b+r); return b^2/(b+r)
+end
 --[[
 
 ## Print Stuff
