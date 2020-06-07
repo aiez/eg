@@ -35,6 +35,11 @@ function Data:headers()
   return lib.map(self.cols,function(z) return z.txt end) 
 end 
 
+function Data:klass()
+  for _,col in pairs(self.cols) do 
+    if l.klass(col.txt) then return col end end
+end
+
 function Data:import(f)
   for row in lib.csv(f) do self:add(row) end
   return self

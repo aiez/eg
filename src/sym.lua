@@ -35,7 +35,7 @@ how well `k` is supported and the probability of `k`.
 
 --]]
 function Sym:bore(k)
-  local b = self.seen[k]
+  local b = self.seen[k] or 0
   local r = self.n - b
   b = b   / self.n
   r = r  /  self.n

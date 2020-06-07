@@ -22,7 +22,6 @@ function _dist(    data,t,mids)
   end
   table.sort(d, function(a,b) return a.dom > b.dom end)
   local all = d[1].data:headers()
-  l.ooo(all)
   all = l.add(all, {"!best"}) 
   all = Data( all )
   for _,row in pairs(d[1].data.rows) do
@@ -32,7 +31,7 @@ function _dist(    data,t,mids)
   for i=2,#d do
     for _,row in pairs(d[i].data.rows) do
       if math.random() < 4*n2/(n1 - n2) then
-        all:add( l.add(row.cells, {false})) end end end
+        all:add( l.add(row.cells, {i==1})) end end end
   l.ooo(all.cols[#all.cols])
 end
 

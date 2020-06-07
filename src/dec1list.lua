@@ -1,7 +1,6 @@
 local l   = require "lib"
-local Num = require "num"
-local Sym = require "sym"
-local Div = require "div"
+local DivNum = require "divnum"
+local DivSym = require "divsym"
 --[[
 
 Build a decision list. At each level, make decision using
@@ -18,10 +17,10 @@ into target and non-target.
 
 --]]
 local Dec1list = l.class()
-function Dec1list:_init(headers, all)
-  self.min     = 8
-  self.max     = 1024
-  self.all     = all
+function Dec1list:_init(data, best)
+  self.min     = l.the.dec1list.min
+  self.max     = l.the.dec1list.max
+  self.data    = data
   self.headers = headers
 end
 --[[
@@ -31,70 +30,78 @@ Recurse on the rest (if there are enough of them) then
 maybe recurse on the rest.
 
 --]]
-function Dec1list:div(all)
-  local rs={}
-  for i,h in pairs(self.headers) do
-    rs[#rs+1]= l.num(h) and self:num(i,h,a) or self:sym(i,h,a)
+function Dec1list:div()
+  local maybes = self:candidates()
+  if data:klass().seen[self.best] > self.min 
+  then 
+    local want, best, rest = self:minEnt(maybes)
+    return {pos=  want.pos, txt=  want.txt, 
+            lo=   want.lo,  hi=   want.hi,  
+            best= best,     rest= self:div(rest,self.best),
+            leaf= false}
+  else 
+    local want, best, rest = self:maxBore(maybes)
+    return {pos=  want.pos, txt=  want.txt, 
+            lo=   want.lo,  hi=   want.hi, 
+            best= best,     rest= rest,
+            leaf= true} 
   end
-  local range,best,all1,_ = self:select(all,rs, 
-           function (a,b) return a.ent  < b.ent end)
-  if rest > self.min then
-    return {pos=  range.pos, txt=  range.txt, 
-            lo=   range.lo,  hi=   range.hi,  
-            used= best,      rest= self:div(all1)}
-  end
-  local range,best,_,finally = self:select(all,rs, 
-           function(a,b) return a.bore>b.bore end)
-  return   {pos=  range.pos, txt=  range.txt, 
-            lo=   range.lo,  hi=   range.hi, 
-            used= best,      rest= finally}
 end
 
-function Dec1list:select(all1,rs,goal)
-  table.sort(rs,goal)
-  local range, best,all2,finally = rs[1], {},{},{}
-  for i,rows in pairs(all1) do
-    local rest = {}
-    for _,row in pairs(rows) do
-      v = row.cell[ range.pos ]
-      if v ~= "?" then
-        if   v >= range.lo and v <= range.hi 
-        then best[#best+1] = row
-        else rest[#rest+1] = row
-             finally[#finally+1] = row end end end
-    all2[i] = rest
-  end
-  return range, best, all2, finally
-end
---[[
-
-Divide numeric or symbolic columns.
-
---]]
-function Dec1list:num(pos, txt, all) 
-  return Div(self.max, pos, txt, all) end
-
-function Dec1list:sym(pos, txt, all)
-  local a, b, c, n = {}, {}, {}, 0
-  for _,one in pairs(self.all) do n=n + #one end
-  for i,rows in pairs(all) do
-    for _,row in pairs(rows) do
-      local x = row.cells[pos]
+--- XYZ: has to to carry the same out over all cols
+function Dec1list:candidates()
+  local function xys(col)
+    local a, n = {}, self.max/#(self.data.rows)
+    for i,rows in pairs(self.data.rows) do
+      local x = row.cells[self.col.pos]
       if x ~= "?" then
-        if rand() < self.max/n then
-           a[ #a+1 ] = {x= x, y=i} end end end end
-  for _,xy in pairs(a) do 
-    b[xy.x] = b[xy.x] or Sym(pos,pos)
+        if rand() < t then
+          a[#a+1] = {x = x, 
+                     y = row.cells[self.klass.pos]}  end end
+    return a
+  end
+  local a={}
+  for _,col in pairs(self.data.cols) do
+    local a = xys(col)
+    l.num(col.txt) and self:num(col,a) or self:sym(col,a) end
+  return a
+end
+
+function Dec1list:minEnt()
+  return self:select(ranges, function (a,b) 
+                             return a.ent  < b.ent end)
+end
+
+function Dec1list:num(col,ranges) 
+  return Div(col, self.pairs(cols),   self.best,ranges)
+end
+function Dec1list:select(ranges,goal)
+  table.sort(ranges,goal)
+  local want = ranges[1]
+  local best, rest = self.data:clone(), self.data:clone()
+  for i,rows in pairs(self.data.rows) do
+    v = row.cell[ want.pos ]
+     if   v ~= "?" and v >= want.lo and v <= want.hi 
+     then best:add(row)
+     else rest:add(row)
+     end end
+  return want, best, rest
+end
+
+function Dec1list:sym(col, ranges)
+  local a = self:paris(col)
+  local b = {}
+  for _,xy in pairs(a) do
+    b[xy.x] = b[xy.x] or Sym()
     b[xy.x]:add( xy.y )
   end
-  for x,ys in pairs(b) do c[#c+1] = {
-          pos   =  pos,
-          txt   =  txt,
+  for x,ys in pairs(b) do ranges[#ranges+1] = {
+          pos   =  col.pos,
+          txt   =  col.txt,
           lo    =  x,
           hi    =  x,
-          bore  =  ys:bore(1),
+          bore  =  ys:bore(self.best),
           ent   =  ys:var()*ys.n/#a } end
-  return c
 end
 
 return Dec1list
