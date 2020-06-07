@@ -22,17 +22,17 @@ function _dist(    data,t,mids)
         then d1.dom = d1.dom + 1
    end end end end
    table.sort(d, function(a,b) return a.dom > b.dom end)
-   best = d[1].data
-   rest = data:clone()
+   some = data:clone(d[1].data.rows)
+   n1 = #some.rows
+   l.map(some.rows, function (r) r.best= true end)
+   n    = *#some.rows/(#data.rows - #some.rows)
+   rest = {}
    for i=2,#d do
      for _,row in pairs(d[i].data.rows) do
-       if math.random() < 
-          4*#best.rows/(#data.rows - #best.rows) then
-         rest:add( row )
-       end end end
-   print(#best.rows, #rest.rows)
-   l.oo(best:show(l.y))
-   l.oo(rest:show(l.y))
+       if math.random() < n then
+         some:add(row) end end end
+   n2 = #some.rows
+   print(n1, #some.rows)
 
 end
 

@@ -3,6 +3,7 @@ local Row = lib.class()
 
 function Row:_init(a) 
   self.cells = a.cells and a.cells or a
+  self.best  = false
   lib.id(self)
 end
 

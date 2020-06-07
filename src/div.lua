@@ -4,14 +4,15 @@ local Num = require "num"
 local Sym = require "sym"
 
 local Div = l.class()
-function Div:_init(max,pos,txt,all)
+function Div:_init(pos,txt,data,klass)
   self.pos    = pos
-  self.all    = all
   self.txt    = txt
-  self.max    = max or 1024
-  self.cohen  = 0.3
-  self.min    = function (z) return (#z)^0.5 end
-  self.better = 1.025
+  self.data   = data
+  self.max    = l.the.div.max
+  self.cohen  = l.the.div.cohen
+  self.better = l.the.div.better
+  self.klass  = data:using(l.klass)[1]
+  self.min    = function (z) return (#z)^l.the.div.min end
 end
 
 -- xxx need the majorit y class

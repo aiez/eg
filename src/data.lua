@@ -24,8 +24,7 @@ function Data:add(a)
 end
 
 function Data:clone(rows) 
-  return Data(lib.map(self.cols,
-                     function(z) return z.txt end), 
+  return Data(lib.map(self.cols,function(z) return z.txt end), 
               rows or {}) end
 
 function Data:head(a)
@@ -70,6 +69,11 @@ function Data:tree(using,max,  s,t)
   s = self:space(using,max)
   t = Tree(s, s.data.rows)
   return t
+end
+
+function Data:using(f)
+  return lib.select(self.cols, 
+                  function (c) return f(c.txt) end)
 end
 
 return Data
