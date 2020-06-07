@@ -24,13 +24,16 @@ function Data:add(a)
 end
 
 function Data:clone(rows) 
-  return Data(lib.map(self.cols,function(z) return z.txt end), 
-              rows or {}) end
+  return Data(self:headers(), rows or {}) end
 
 function Data:head(a)
   for i,s in pairs(a) do
     self.cols[i] = lib.num(s) and Num(s,i) or Sym(s,i) end
 end
+
+function Data:headers() 
+  return lib.map(self.cols,function(z) return z.txt end) 
+end 
 
 function Data:import(f)
   for row in lib.csv(f) do self:add(row) end

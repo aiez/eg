@@ -61,7 +61,7 @@ end
 --]]
 function M.o(z,pre,   s,sep) 
   s, sep = (pre or "")..'{', ""
-  for _,v in pairs(z or {}) do s = s..sep..v; sep=", " end
+  for _,v in pairs(z or {}) do s = s..sep..tostring(v); sep=", " end
   return s..'}'
 end
 
@@ -73,7 +73,7 @@ function M.ooo(t,pre,    indent,fmt)
   if indent < 10 then
     for k, v in pairs(t or {}) do
       if not (type(k)=='string' and k:match("^_")) then
-        fmt = pre .. string.rep("|  ", indent) .. k .. ": "
+        fmt= pre..string.rep("|  ",indent)..tostring(k)..": "
         if type(v) == "table" then
           print(fmt)
           M.ooo(v, pre, indent+1)
@@ -94,6 +94,13 @@ function M.anys(a,n,   t)
   t={}
   for i=1,n do t[#t+1] = M.any(a) end
   return t
+end
+
+function M.add(t,also) 
+  local b = {}
+  for i,x in pairs(t)          do b[i]    = x end
+  for _,x in pairs(also or {}) do b[#b+1] = x end
+  return b
 end
 
 function M.cache(f)

@@ -2,7 +2,9 @@ local lib = require "lib"
 local Row = lib.class()
 
 function Row:_init(a) 
-  self.cells = a.cells and a.cells or a
+  a = a.cells and a.cells or a
+  self.cells = {} 
+  for i,x in pairs(a or {}) do self.cells[i] = x end
   self.best  = false
   lib.id(self)
 end

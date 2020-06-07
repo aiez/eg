@@ -42,7 +42,7 @@ function Div:div()
   return out
 end
 
-function Div:divNum1(lo, hi, xs, ys, a,out)
+function Div:div1(lo, hi, xs, ys, a,out)
   local xl,yl,xr,yr,best = Num(),Sym(),cp(xs),cp(ys)
   local cut,xl1,yl1,xr1,yr1,x1
   local best = ys:var()
