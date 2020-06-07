@@ -1,6 +1,5 @@
 local l   = require "lib"
 local DivNum = require "divnum"
-local DivSym = require "divsym"
 --[[
 
 Build a decision list. At each level, make decision using

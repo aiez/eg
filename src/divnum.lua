@@ -26,6 +26,8 @@ function DivNum:div()
   return self.out
 end
 
+-- split this into cut and recurse
+
 function DivNum:div1(lo, hi, xs, ys)
   local xl,yl,xr,yr,best = Num(),Sym(),cp(xs),cp(ys)
   local cut,xl1,yl1,xr1,yr1,x1
