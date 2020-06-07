@@ -58,14 +58,10 @@ function Dec1list:select(all1,rs,goal)
     for _,row in pairs(rows) do
       v = row.cell[ range.pos ]
       if v ~= "?" then
-        if v >= range.lo and v <= range.hi then
-           best[#best+1] = row
-        else
-           rest[#rest+1] = row
-           finally[#finally+1] = row
-        end
-      end
-    end
+        if   v >= range.lo and v <= range.hi 
+        then best[#best+1] = row
+        else rest[#rest+1] = row
+             finally[#finally+1] = row end end end
     all2[i] = rest
   end
   return range, best, all2, finally
